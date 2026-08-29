@@ -3,16 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Viral Link</title>
 
+<!-- MONETAG SDK -->
+<script
+    src="https://libtl.com/sdk.js"
+    data-zone="11680537"
+    data-sdk="show_11680537">
+</script>
+
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
     padding:0;
 }
 
-html,body{
+html,
+body{
     width:100%;
     min-height:100%;
 }
@@ -24,13 +34,19 @@ body{
     overflow-x:hidden;
 }
 
+/* =========================
+   HEADER
+========================= */
+
 .header{
     height:68px;
     background:#151515;
     border-bottom:2px solid #ff9800;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
+
     padding:0 15px;
 }
 
@@ -44,6 +60,7 @@ body{
     font-size:36px;
     line-height:1;
     color:#fff;
+    cursor:pointer;
 }
 
 .logo{
@@ -56,70 +73,112 @@ body{
 .logo-img{
     width:42px;
     height:42px;
+
     border-radius:50%;
     object-fit:cover;
+
     border:2px solid #ff9800;
     background:#222;
 }
 
+/* =========================
+   CONTAINER
+========================= */
+
 .container{
     width:100%;
     max-width:720px;
+
     margin:auto;
+
     padding:20px 12px 45px;
 }
 
-/* PREMIUM BANNER */
+/* =========================
+   PREMIUM BANNER
+========================= */
 
 .video-card{
     width:100%;
+
     background:#111;
+
     border:1px solid #333;
     border-radius:22px;
+
     padding:4px;
+
     overflow:hidden;
-    box-shadow:0 10px 35px rgba(0,0,0,.5);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.5);
 }
 
 .video-card img{
     width:100%;
+
     aspect-ratio:16/9;
+
     display:block;
+
     object-fit:cover;
+
     border-radius:18px;
+
     background:#181818;
 }
 
 .image-fallback{
     display:none;
+
     width:100%;
+
     aspect-ratio:16/9;
+
     border-radius:18px;
+
     background:#151515;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     color:#777;
+
     font-size:18px;
     font-weight:bold;
 }
 
-/* STATS */
+/* =========================
+   STATS
+========================= */
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+
+    grid-template-columns:
+        repeat(3,1fr);
+
     gap:9px;
+
     margin-top:17px;
 }
 
 .stat{
     background:#101010;
+
     border:1px solid #292929;
+
     border-radius:18px;
+
     padding:16px 5px;
+
     text-align:center;
+
     cursor:pointer;
+
+    transition:.15s ease;
 }
 
 .stat:active{
@@ -143,65 +202,117 @@ body{
     margin-top:5px;
 }
 
-/* AD BOX */
+/* =========================
+   AD BOX
+========================= */
 
 .ad-box{
     margin-top:19px;
-    background:linear-gradient(145deg,#17130b,#0e0c09);
+
+    background:
+        linear-gradient(
+            145deg,
+            #17130b,
+            #0e0c09
+        );
+
     border:1px dashed #ff9800;
+
     border-radius:23px;
+
     padding:21px 15px 19px;
+
     text-align:center;
 }
 
 .ad-title{
     color:#ffbd16;
+
     font-size:20px;
+
     font-weight:900;
+
     margin-bottom:17px;
 }
 
 .progress-bg{
     width:100%;
+
     height:10px;
+
     background:#292929;
+
     border-radius:20px;
+
     overflow:hidden;
 }
 
 .progress{
     width:0%;
+
     height:100%;
-    background:linear-gradient(90deg,#ff8a00,#ffc107);
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff8a00,
+            #ffc107
+        );
+
     border-radius:20px;
+
     transition:.4s ease;
 }
 
 .progress-text{
     font-size:20px;
+
     font-weight:800;
+
     margin-top:14px;
 }
 
 .help-text{
     color:#999;
+
     font-size:14px;
+
     line-height:1.5;
+
     margin-top:8px;
 }
 
 .ad-button{
     width:100%;
+
     margin-top:17px;
+
     border:0;
+
     border-radius:17px;
+
     padding:18px 12px;
-    background:linear-gradient(135deg,#ff9800,#ffad19);
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff9800,
+            #ffad19
+        );
+
     color:#050505;
+
     font-size:20px;
+
     font-weight:900;
+
     cursor:pointer;
-    box-shadow:0 8px 25px rgba(255,152,0,.18);
+
+    box-shadow:
+        0 8px 25px
+        rgba(255,152,0,.18);
+
+    transition:.15s ease;
 }
 
 .ad-button:active{
@@ -210,70 +321,105 @@ body{
 
 .ad-button:disabled{
     background:#555;
+
     color:#aaa;
+
     cursor:not-allowed;
+
     box-shadow:none;
 }
 
 .step-info{
     margin-top:14px;
+
     color:#999;
+
     font-size:14px;
 }
 
-/* UNLOCK */
+/* =========================
+   UNLOCK BOX
+========================= */
 
 .unlock-box{
     display:none;
+
     margin-top:19px;
+
     background:#0e1b12;
+
     border:1px solid #2d8a50;
+
     border-radius:22px;
+
     padding:22px 15px;
+
     text-align:center;
 }
 
 .unlock-title{
     color:#5cff7a;
+
     font-size:23px;
+
     font-weight:900;
 }
 
 .unlock-text{
     margin-top:10px;
+
     color:#aaa;
+
     font-size:14px;
+
     line-height:1.5;
 }
 
 .unlock-button{
     display:block;
+
     width:100%;
+
     margin-top:18px;
+
     padding:18px 12px;
+
     border-radius:16px;
+
     background:#22c55e;
+
     color:#fff;
+
     text-decoration:none;
+
     font-size:19px;
+
     font-weight:900;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
     text-align:center;
+
     margin-top:27px;
+
     color:#555;
+
     font-size:13px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:600px){
 
     .header{
         height:65px;
+
         padding:0 13px;
     }
 
@@ -291,16 +437,23 @@ body{
     }
 
     .container{
-        padding:18px 11px 40px;
+        padding:
+            18px
+            11px
+            40px;
     }
 
     .stats{
         gap:8px;
+
         margin-top:15px;
     }
 
     .stat{
-        padding:15px 4px;
+        padding:
+            15px
+            4px;
+
         border-radius:17px;
     }
 
@@ -318,7 +471,11 @@ body{
 
     .ad-box{
         margin-top:17px;
-        padding:20px 14px 18px;
+
+        padding:
+            20px
+            14px
+            18px;
     }
 
     .ad-title{
@@ -327,20 +484,47 @@ body{
 
     .ad-button{
         font-size:19px;
-        padding:17px 10px;
+
+        padding:
+            17px
+            10px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <header class="header">
 
     <div class="logo-area">
-        <div class="back">‹</div>
-        <div class="logo">VIRAL LINK</div>
+
+        <div
+            class="back"
+            onclick="goBack()"
+        >
+            ‹
+        </div>
+
+        <div class="logo">
+            VIRAL LINK
+        </div>
+
     </div>
+
+
+    <!--
+        যদি assets/logo.png থাকে,
+        তাহলে এখানে Logo দেখাবে।
+    -->
 
     <img
         class="logo-img"
@@ -352,385 +536,698 @@ body{
 </header>
 
 
+
 <main class="container">
 
-    <!-- PREMIUM VIDEO IMAGE -->
 
-    <div class="video-card">
+<!-- =========================
+     PREMIUM PREVIEW
+========================= -->
 
-        <img
-            id="previewImage"
-            src="assets/preview.jpg"
-            alt="Viral Video"
-            onerror="imageError()"
-        >
+<div class="video-card">
 
-        <div
-            class="image-fallback"
-            id="imageFallback"
-        >
-            🎬<br><br>
-            Viral Video
-        </div>
-
-    </div>
-
-
-    <!-- STATS -->
-
-    <div class="stats">
-
-        <div class="stat">
-            <div class="stat-icon">♡</div>
-            <div class="stat-title">Likes</div>
-            <div class="stat-number">52</div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-icon">◉</div>
-            <div class="stat-title">Views</div>
-            <div class="stat-number">3167</div>
-        </div>
-
-        <div
-            class="stat"
-            id="shareButton"
-        >
-            <div class="stat-icon">➤</div>
-            <div class="stat-title">Share</div>
-            <div class="stat-number">Share</div>
-        </div>
-
-    </div>
-
-
-    <!-- AD UNLOCK -->
-
-    <section class="ad-box">
-
-        <div class="ad-title">
-            ▶ Watch 4 ads to unlock
-        </div>
-
-        <div class="progress-bg">
-            <div
-                class="progress"
-                id="progress"
-            ></div>
-        </div>
-
-        <div class="progress-text">
-            Progress:
-            <span id="count">0</span>/4
-        </div>
-
-        <div
-            class="help-text"
-            id="status"
-        >
-            Click Start to watch ads
-        </div>
-
-        <button
-            class="ad-button"
-            id="adButton"
-            type="button"
-        >
-            🔒 Unlock Video
-        </button>
-
-        <div class="step-info">
-            Ad Step:
-            <span id="step">1</span> / 4
-        </div>
-
-    </section>
-
-
-    <!-- UNLOCK -->
-
-    <section
-        class="unlock-box"
-        id="unlockBox"
+    <img
+        id="previewImage"
+        src="assets/preview.jpg"
+        alt="Viral Video"
+        onerror="imageError()"
     >
 
-        <div class="unlock-title">
-            ✅ Video Unlocked!
-        </div>
-
-        <div class="unlock-text">
-            সবগুলো ধাপ সম্পন্ন হয়েছে।<br>
-            এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
-        </div>
-
-        <a
-            class="unlock-button"
-            href="https://t.me/sumsyasayed8676"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            ▶ Watch Video on Telegram
-        </a>
-
-    </section>
-
-
-    <div class="footer">
-        © 2026 Viral Link
+    <div
+        class="image-fallback"
+        id="imageFallback"
+    >
+        🎬
+        <br>
+        <br>
+        Viral Video
     </div>
+
+</div>
+
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<div class="stats">
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ♡
+        </div>
+
+        <div class="stat-title">
+            Likes
+        </div>
+
+        <div class="stat-number">
+            52
+        </div>
+
+    </div>
+
+
+
+    <div class="stat">
+
+        <div class="stat-icon">
+            ◉
+        </div>
+
+        <div class="stat-title">
+            Views
+        </div>
+
+        <div class="stat-number">
+            3167
+        </div>
+
+    </div>
+
+
+
+    <div
+        class="stat"
+        id="shareButton"
+    >
+
+        <div class="stat-icon">
+            ➤
+        </div>
+
+        <div class="stat-title">
+            Share
+        </div>
+
+        <div class="stat-number">
+            Share
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================
+     REWARDED AD SYSTEM
+========================= -->
+
+<section class="ad-box">
+
+
+    <div class="ad-title">
+        ▶ Watch 4 ads to unlock
+    </div>
+
+
+
+    <div class="progress-bg">
+
+        <div
+            class="progress"
+            id="progress"
+        ></div>
+
+    </div>
+
+
+
+    <div class="progress-text">
+
+        Progress:
+        <span id="count">
+            0
+        </span>/4
+
+    </div>
+
+
+
+    <div
+        class="help-text"
+        id="status"
+    >
+        Click Unlock Video to watch the ad
+    </div>
+
+
+
+    <button
+        class="ad-button"
+        id="adButton"
+        type="button"
+    >
+        🔒 Unlock Video
+    </button>
+
+
+
+    <div class="step-info">
+
+        Ad Step:
+        <span id="step">
+            1
+        </span>
+        / 4
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================
+     VIDEO UNLOCK
+========================= -->
+
+<section
+    class="unlock-box"
+    id="unlockBox"
+>
+
+
+    <div class="unlock-title">
+        ✅ Video Unlocked!
+    </div>
+
+
+    <div class="unlock-text">
+
+        সবগুলো ধাপ সম্পন্ন হয়েছে।
+        <br>
+
+        এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
+
+    </div>
+
+
+    <a
+        class="unlock-button"
+        href="https://t.me/sumsyasayed8676"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        ▶ Watch Video on Telegram
+    </a>
+
+
+</section>
+
+
+
+<div class="footer">
+
+    © 2026 Viral Link
+
+</div>
+
 
 </main>
 
 
+
 <script>
 
-/* ==========================================
-   YOUR 4 ADSTERRA DIRECT LINKS
-========================================== */
-
-const ads = [
-
-    "https://www.profitableratecpmnetwork.com/q3zjipqhy?key=85e0216c046f5d39a06a022d2705cadb",
-
-    "https://www.profitableratecpmnetwork.com/ajfhz8g4?key=ff0445349c61914a22fdb3d9c666eda6",
-
-    "https://www.profitableratecpmnetwork.com/cr6535sd?key=74e8250fd48acb473b4d71d7c70ee1de",
-
-    "https://www.profitableratecpmnetwork.com/dtuycnkbmm?key=e07f2914b52e83e57f563c074b293003"
-
-];
-
-
-/* ==========================================
+/* =========================================
    TELEGRAM VIDEO
-========================================== */
+========================================= */
 
 const TELEGRAM_VIDEO =
-"https://t.me/sumsyasayed8676";
+    "https://t.me/sumsyasayed8676";
 
+
+/* =========================================
+   SETTINGS
+========================================= */
+
+const TOTAL_ADS = 4;
+
+/*
+   UI cooldown.
+
+   এটা reward দেওয়ার শর্ত নয়।
+   Monetag callback-ই আসল completion।
+*/
+
+const UI_COOLDOWN = 15;
+
+
+/* =========================================
+   STATE
+========================================= */
 
 let completed = 0;
-let waiting = false;
+
+let adRunning = false;
+
+let cooldownTimer = null;
+
+let cooldownRemaining = 0;
+
+let rewardedReceived = false;
 
 
-/* ==========================================
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const adButton =
+    document.getElementById("adButton");
+
+const status =
+    document.getElementById("status");
+
+const progress =
+    document.getElementById("progress");
+
+const count =
+    document.getElementById("count");
+
+const step =
+    document.getElementById("step");
+
+const unlockBox =
+    document.getElementById("unlockBox");
+
+
+/* =========================================
    IMAGE ERROR
-========================================== */
+========================================= */
 
 function imageError(){
 
     const img =
-        document.getElementById("previewImage");
+        document.getElementById(
+            "previewImage"
+        );
 
     const fallback =
-        document.getElementById("imageFallback");
+        document.getElementById(
+            "imageFallback"
+        );
 
-    img.style.display = "none";
+    img.style.display =
+        "none";
 
-    fallback.style.display = "flex";
+    fallback.style.display =
+        "flex";
 }
 
 
-/* ==========================================
-   START AD
-========================================== */
+/* =========================================
+   BACK BUTTON
+========================================= */
 
-function startAd(){
+function goBack(){
 
-    if(waiting){
-        return;
+    if(
+        window.history.length > 1
+    ){
+
+        window.history.back();
+
+    }else{
+
+        window.location.href =
+            "https://t.me/sumsyasayed8676";
+
     }
 
-    if(completed >= 4){
-        unlockVideo();
-        return;
+}
+
+
+/* =========================================
+   UPDATE PROGRESS
+========================================= */
+
+function updateProgress(){
+
+    const percentage =
+        (completed / TOTAL_ADS) * 100;
+
+
+    progress.style.width =
+        percentage + "%";
+
+
+    count.innerText =
+        completed;
+
+
+    if(
+        completed >= TOTAL_ADS
+    ){
+
+        step.innerText =
+            TOTAL_ADS;
+
+    }else{
+
+        step.innerText =
+            completed + 1;
+
     }
 
-    waiting = true;
+}
 
-    const button =
-        document.getElementById("adButton");
 
-    const status =
-        document.getElementById("status");
+/* =========================================
+   START COOLDOWN
+========================================= */
 
-    button.disabled = true;
+function startCooldown(){
+
+    clearInterval(
+        cooldownTimer
+    );
+
+
+    cooldownRemaining =
+        UI_COOLDOWN;
+
+
+    adButton.disabled =
+        true;
+
+
+    adButton.innerText =
+        "⏳ " +
+        cooldownRemaining +
+        " সেকেন্ড";
+
 
     status.innerText =
-        "Advertisement opening...";
+        "বিজ্ঞাপন থেকে ফিরে এসেছেন। অপেক্ষা করুন...";
+
+
+    cooldownTimer =
+        setInterval(function(){
+
+            cooldownRemaining--;
+
+
+            if(
+                cooldownRemaining > 0
+            ){
+
+                adButton.innerText =
+                    "⏳ " +
+                    cooldownRemaining +
+                    " সেকেন্ড";
+
+            }else{
+
+                clearInterval(
+                    cooldownTimer
+                );
+
+                cooldownTimer =
+                    null;
+
+
+                finishAdAttempt();
+
+            }
+
+        },1000);
+
+}
+
+
+/* =========================================
+   FINISH AD ATTEMPT
+========================================= */
+
+function finishAdAttempt(){
+
+    /*
+       Reward callback না এলে
+       কখনো Step Complete হবে না।
+    */
+
+    if(
+        !rewardedReceived
+    ){
+
+        adRunning =
+            false;
+
+
+        adButton.disabled =
+            false;
+
+
+        adButton.innerText =
+            "🔄 Try Again";
+
+
+        status.innerText =
+            "বিজ্ঞাপনের reward পাওয়া যায়নি। আবার চেষ্টা করুন।";
+
+
+        return;
+    }
 
 
     /*
-       বর্তমান ধাপের DirectLink
+       Monetag rewarded callback এসেছে।
     */
 
-    const currentAd =
-        ads[completed];
+    completed++;
+
+    rewardedReceived =
+        false;
+
+    adRunning =
+        false;
+
+
+    updateProgress();
+
+
+    if(
+        completed >= TOTAL_ADS
+    ){
+
+        unlockVideo();
+
+        return;
+
+    }
+
+
+    adButton.disabled =
+        false;
+
+
+    adButton.innerText =
+        "🔒 Next Ad";
+
+
+    status.innerText =
+        "পরবর্তী বিজ্ঞাপন দেখতে Next Ad চাপুন";
+
+}
+
+
+/* =========================================
+   SHOW REWARDED AD
+========================================= */
+
+async function startAd(){
+
+    if(
+        adRunning
+    ){
+
+        return;
+
+    }
+
+
+    if(
+        completed >= TOTAL_ADS
+    ){
+
+        unlockVideo();
+
+        return;
+
+    }
 
 
     /*
-       নতুন tab খুলবে
+       Monetag SDK available কিনা পরীক্ষা
     */
 
-    const newWindow =
-        window.open(
-            currentAd,
-            "_blank"
+    if(
+        typeof show_11680537 !==
+        "function"
+    ){
+
+        status.innerText =
+            "Advertisement system এখনো load হয়নি। কয়েক সেকেন্ড পরে চেষ্টা করুন।";
+
+        return;
+
+    }
+
+
+    adRunning =
+        true;
+
+    rewardedReceived =
+        false;
+
+
+    adButton.disabled =
+        true;
+
+
+    adButton.innerText =
+        "⏳ Opening Ad...";
+
+
+    status.innerText =
+        "Advertisement loading...";
+
+
+    try{
+
+        /*
+           Monetag Rewarded Interstitial
+        */
+
+        await show_11680537();
+
+
+        /*
+           Monetag Promise resolve করেছে।
+           এখন reward পাওয়া গেছে।
+        */
+
+        rewardedReceived =
+            true;
+
+
+        /*
+           UI cooldown শুরু।
+        */
+
+        startCooldown();
+
+
+    }catch(error){
+
+        console.log(
+            "Monetag Ad Error:",
+            error
         );
 
 
-    /*
-       Popup blocked হলে
-    */
+        adRunning =
+            false;
 
-    if(!newWindow){
+        rewardedReceived =
+            false;
 
-        button.disabled = false;
 
-        waiting = false;
+        adButton.disabled =
+            false;
+
+
+        adButton.innerText =
+            "🔄 Try Again";
+
 
         status.innerText =
-            "Ad খুলতে পারেনি। আবার বাটনে চাপুন।";
+            "Advertisement সম্পূর্ণ হয়নি। আবার চেষ্টা করুন।";
 
-        return;
     }
-
-
-    /*
-       5 seconds পরে Continue
-    */
-
-    setTimeout(function(){
-
-        button.disabled = false;
-
-        button.innerText =
-            "✅ Continue";
-
-        status.innerText =
-            "Ad থেকে ফিরে এসে Continue চাপুন";
-
-        waiting = false;
-
-    },5000);
 
 }
 
 
-/* ==========================================
-   BUTTON
-========================================== */
+/* =========================================
+   AD BUTTON
+========================================= */
 
-document
-.getElementById("adButton")
-.addEventListener(
+adButton.addEventListener(
     "click",
     function(){
 
-        if(
-            this.innerText === "✅ Continue"
-        ){
-
-            completed++;
-
-            updateProgress();
-
-            if(completed >= 4){
-
-                unlockVideo();
-
-                return;
-            }
-
-            this.innerText =
-                "🔒 Unlock Video";
-
-            document
-            .getElementById("status")
-            .innerText =
-                "পরবর্তী বিজ্ঞাপন দেখতে Start চাপুন";
-
-        }else{
-
-            startAd();
-
-        }
+        startAd();
 
     }
 );
 
 
-/* ==========================================
-   PROGRESS
-========================================== */
-
-function updateProgress(){
-
-    const percent =
-        (completed / 4) * 100;
-
-    document
-    .getElementById("progress")
-    .style.width =
-        percent + "%";
-
-    document
-    .getElementById("count")
-    .innerText =
-        completed;
-
-    document
-    .getElementById("step")
-    .innerText =
-        completed >= 4
-        ? "4"
-        : completed + 1;
-
-}
-
-
-/* ==========================================
-   UNLOCK
-========================================== */
+/* =========================================
+   UNLOCK VIDEO
+========================================= */
 
 function unlockVideo(){
 
-    document
-    .getElementById("progress")
-    .style.width =
+    completed =
+        TOTAL_ADS;
+
+
+    progress.style.width =
         "100%";
 
-    document
-    .getElementById("count")
-    .innerText =
-        "4";
 
-    document
-    .getElementById("step")
-    .innerText =
-        "4";
+    count.innerText =
+        TOTAL_ADS;
 
-    document
-    .getElementById("status")
-    .innerText =
+
+    step.innerText =
+        TOTAL_ADS;
+
+
+    status.innerText =
         "সবগুলো Advertisement Step Complete!";
 
-    document
-    .getElementById("adButton")
-    .style.display =
+
+    adButton.style.display =
         "none";
 
-    document
-    .getElementById("unlockBox")
-    .style.display =
+
+    unlockBox.style.display =
         "block";
+
+
+    /*
+       Telegram link নিশ্চিত করা
+    */
+
+    const telegramButton =
+        document.querySelector(
+            ".unlock-button"
+        );
+
+
+    if(
+        telegramButton
+    ){
+
+        telegramButton.href =
+            TELEGRAM_VIDEO;
+
+    }
 
 }
 
 
-/* ==========================================
+/* =========================================
    SHARE
-========================================== */
+========================================= */
 
 document
 .getElementById("shareButton")
@@ -738,24 +1235,32 @@ document
     "click",
     async function(){
 
-        if(navigator.share){
+        if(
+            navigator.share
+        ){
 
             try{
 
                 await navigator.share({
 
                     title:
-                    "Viral Video",
+                        "Viral Video",
 
                     text:
-                    "এই ভিডিওটি দেখুন",
+                        "এই ভিডিওটি দেখুন",
 
                     url:
-                    window.location.href
+                        window.location.href
 
                 });
 
-            }catch(e){}
+            }catch(error){
+
+                console.log(
+                    "Share cancelled"
+                );
+
+            }
 
         }else{
 
@@ -769,7 +1274,7 @@ document
                     "লিংক কপি হয়েছে!"
                 );
 
-            }catch(e){
+            }catch(error){
 
                 alert(
                     "লিংক কপি করা যায়নি!"
@@ -781,6 +1286,13 @@ document
 
     }
 );
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+updateProgress();
 
 </script>
 
