@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -73,10 +74,8 @@ body{
 .logo-img{
     width:42px;
     height:42px;
-
     border-radius:50%;
     object-fit:cover;
-
     border:2px solid #ff9800;
     background:#222;
 }
@@ -88,26 +87,20 @@ body{
 .container{
     width:100%;
     max-width:720px;
-
     margin:auto;
-
     padding:20px 12px 45px;
 }
 
 /* =========================
-   PREMIUM BANNER
+   IMAGE
 ========================= */
 
 .video-card{
     width:100%;
-
     background:#111;
-
     border:1px solid #333;
     border-radius:22px;
-
     padding:4px;
-
     overflow:hidden;
 
     box-shadow:
@@ -116,15 +109,10 @@ body{
 
 .video-card img{
     width:100%;
-
     aspect-ratio:16/9;
-
     display:block;
-
     object-fit:cover;
-
     border-radius:18px;
-
     background:#181818;
 }
 
@@ -132,11 +120,9 @@ body{
     display:none;
 
     width:100%;
-
     aspect-ratio:16/9;
 
     border-radius:18px;
-
     background:#151515;
 
     align-items:center;
@@ -145,7 +131,6 @@ body{
     text-align:center;
 
     color:#777;
-
     font-size:18px;
     font-weight:bold;
 }
@@ -156,26 +141,19 @@ body{
 
 .stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:9px;
-
     margin-top:17px;
 }
 
 .stat{
     background:#101010;
-
     border:1px solid #292929;
-
     border-radius:18px;
 
     padding:16px 5px;
 
     text-align:center;
-
     cursor:pointer;
 
     transition:.15s ease;
@@ -227,29 +205,22 @@ body{
 
 .ad-title{
     color:#ffbd16;
-
     font-size:20px;
-
     font-weight:900;
-
     margin-bottom:17px;
 }
 
 .progress-bg{
     width:100%;
-
     height:10px;
 
     background:#292929;
-
     border-radius:20px;
-
     overflow:hidden;
 }
 
 .progress{
     width:0%;
-
     height:100%;
 
     background:
@@ -266,19 +237,14 @@ body{
 
 .progress-text{
     font-size:20px;
-
     font-weight:800;
-
     margin-top:14px;
 }
 
 .help-text{
     color:#999;
-
     font-size:14px;
-
     line-height:1.5;
-
     margin-top:8px;
 }
 
@@ -288,7 +254,6 @@ body{
     margin-top:17px;
 
     border:0;
-
     border-radius:17px;
 
     padding:18px 12px;
@@ -303,7 +268,6 @@ body{
     color:#050505;
 
     font-size:20px;
-
     font-weight:900;
 
     cursor:pointer;
@@ -321,19 +285,14 @@ body{
 
 .ad-button:disabled{
     background:#555;
-
     color:#aaa;
-
     cursor:not-allowed;
-
     box-shadow:none;
 }
 
 .step-info{
     margin-top:14px;
-
     color:#999;
-
     font-size:14px;
 }
 
@@ -361,7 +320,6 @@ body{
     color:#5cff7a;
 
     font-size:23px;
-
     font-weight:900;
 }
 
@@ -371,7 +329,6 @@ body{
     color:#aaa;
 
     font-size:14px;
-
     line-height:1.5;
 }
 
@@ -393,7 +350,6 @@ body{
     text-decoration:none;
 
     font-size:19px;
-
     font-weight:900;
 }
 
@@ -419,7 +375,6 @@ body{
 
     .header{
         height:65px;
-
         padding:0 13px;
     }
 
@@ -445,7 +400,6 @@ body{
 
     .stats{
         gap:8px;
-
         margin-top:15px;
     }
 
@@ -493,11 +447,10 @@ body{
 }
 
 </style>
+
 </head>
 
-
 <body>
-
 
 <!-- =========================
      HEADER
@@ -520,9 +473,7 @@ body{
 
     </div>
 
-
-    <!-- Header Logo -->
-
+    <!-- Logo -->
     <img
         class="logo-img"
         src="assets/logo.png"
@@ -533,26 +484,23 @@ body{
 </header>
 
 
-
 <main class="container">
 
 
 <!-- =========================
-     PREMIUM PREVIEW
+     PREMIUM IMAGE
 ========================= -->
 
 <div class="video-card">
 
     <!--
-        MAIN THUMBNAIL IMAGE
-
-        GitHub:
-        assets/file_0000000032c881fab1c67af41f1108c3.png
+        তোমার GitHub root directory-তে থাকা PNG ছবিটি
+        এখানেই ব্যবহার করা হয়েছে।
     -->
 
     <img
         id="previewImage"
-        src="assets/file_0000000032c881fab1c67af41f1108c3.png"
+        src="./file_0000000032c881fab1c67af41f1108c3.png"
         alt="Viral Video"
         onerror="imageError()"
     >
@@ -570,13 +518,11 @@ body{
 </div>
 
 
-
 <!-- =========================
      STATS
 ========================= -->
 
 <div class="stats">
-
 
     <div class="stat">
 
@@ -595,7 +541,6 @@ body{
     </div>
 
 
-
     <div class="stat">
 
         <div class="stat-icon">
@@ -611,7 +556,6 @@ body{
         </div>
 
     </div>
-
 
 
     <div
@@ -633,9 +577,7 @@ body{
 
     </div>
 
-
 </div>
-
 
 
 <!-- =========================
@@ -644,11 +586,9 @@ body{
 
 <section class="ad-box">
 
-
     <div class="ad-title">
         ▶ Watch 4 ads to unlock
     </div>
-
 
 
     <div class="progress-bg">
@@ -661,7 +601,6 @@ body{
     </div>
 
 
-
     <div class="progress-text">
 
         Progress:
@@ -672,14 +611,12 @@ body{
     </div>
 
 
-
     <div
         class="help-text"
         id="status"
     >
         Click Unlock Video to watch the ad
     </div>
-
 
 
     <button
@@ -689,7 +626,6 @@ body{
     >
         🔒 Unlock Video
     </button>
-
 
 
     <div class="step-info">
@@ -702,9 +638,7 @@ body{
 
     </div>
 
-
 </section>
-
 
 
 <!-- =========================
@@ -716,7 +650,6 @@ body{
     id="unlockBox"
 >
 
-
     <div class="unlock-title">
         ✅ Video Unlocked!
     </div>
@@ -725,6 +658,7 @@ body{
     <div class="unlock-text">
 
         সবগুলো ধাপ সম্পন্ন হয়েছে।
+
         <br>
 
         এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
@@ -741,9 +675,7 @@ body{
         ▶ Watch Video on Telegram
     </a>
 
-
 </section>
-
 
 
 <div class="footer">
@@ -754,7 +686,6 @@ body{
 
 
 </main>
-
 
 
 <script>
@@ -835,6 +766,7 @@ function imageError(){
 
     fallback.style.display =
         "flex";
+
 }
 
 
@@ -869,14 +801,11 @@ function updateProgress(){
     const percentage =
         (completed / TOTAL_ADS) * 100;
 
-
     progress.style.width =
         percentage + "%";
 
-
     count.innerText =
         completed;
-
 
     if(
         completed >= TOTAL_ADS
@@ -905,30 +834,24 @@ function startCooldown(){
         cooldownTimer
     );
 
-
     cooldownRemaining =
         UI_COOLDOWN;
 
-
     adButton.disabled =
         true;
-
 
     adButton.innerText =
         "⏳ " +
         cooldownRemaining +
         " সেকেন্ড";
 
-
     status.innerText =
         "বিজ্ঞাপন থেকে ফিরে এসেছেন। অপেক্ষা করুন...";
-
 
     cooldownTimer =
         setInterval(function(){
 
             cooldownRemaining--;
-
 
             if(
                 cooldownRemaining > 0
@@ -947,7 +870,6 @@ function startCooldown(){
 
                 cooldownTimer =
                     null;
-
 
                 finishAdAttempt();
 
@@ -971,20 +893,17 @@ function finishAdAttempt(){
         adRunning =
             false;
 
-
         adButton.disabled =
             false;
-
 
         adButton.innerText =
             "🔄 Try Again";
 
-
         status.innerText =
             "বিজ্ঞাপনের reward পাওয়া যায়নি। আবার চেষ্টা করুন।";
 
-
         return;
+
     }
 
 
@@ -995,7 +914,6 @@ function finishAdAttempt(){
 
     adRunning =
         false;
-
 
     updateProgress();
 
@@ -1014,10 +932,8 @@ function finishAdAttempt(){
     adButton.disabled =
         false;
 
-
     adButton.innerText =
         "🔒 Next Ad";
-
 
     status.innerText =
         "পরবর্তী বিজ্ঞাপন দেখতে Next Ad চাপুন";
@@ -1070,14 +986,11 @@ async function startAd(){
     rewardedReceived =
         false;
 
-
     adButton.disabled =
         true;
 
-
     adButton.innerText =
         "⏳ Opening Ad...";
-
 
     status.innerText =
         "Advertisement loading...";
@@ -1087,13 +1000,10 @@ async function startAd(){
 
         await show_11680537();
 
-
         rewardedReceived =
             true;
 
-
         startCooldown();
-
 
     }catch(error){
 
@@ -1102,21 +1012,17 @@ async function startAd(){
             error
         );
 
-
         adRunning =
             false;
 
         rewardedReceived =
             false;
 
-
         adButton.disabled =
             false;
 
-
         adButton.innerText =
             "🔄 Try Again";
-
 
         status.innerText =
             "Advertisement সম্পূর্ণ হয়নি। আবার চেষ্টা করুন।";
@@ -1149,26 +1055,20 @@ function unlockVideo(){
     completed =
         TOTAL_ADS;
 
-
     progress.style.width =
         "100%";
-
 
     count.innerText =
         TOTAL_ADS;
 
-
     step.innerText =
         TOTAL_ADS;
-
 
     status.innerText =
         "সবগুলো Advertisement Step Complete!";
 
-
     adButton.style.display =
         "none";
-
 
     unlockBox.style.display =
         "block";
