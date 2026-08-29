@@ -521,10 +521,7 @@ body{
     </div>
 
 
-    <!--
-        যদি assets/logo.png থাকে,
-        তাহলে এখানে Logo দেখাবে।
-    -->
+    <!-- Header Logo -->
 
     <img
         class="logo-img"
@@ -546,9 +543,16 @@ body{
 
 <div class="video-card">
 
+    <!--
+        MAIN THUMBNAIL IMAGE
+
+        GitHub:
+        assets/file_0000000032c881fab1c67af41f1108c3.png
+    -->
+
     <img
         id="previewImage"
-        src="assets/preview.jpg"
+        src="assets/file_0000000032c881fab1c67af41f1108c3.png"
         alt="Viral Video"
         onerror="imageError()"
     >
@@ -769,13 +773,6 @@ const TELEGRAM_VIDEO =
 
 const TOTAL_ADS = 4;
 
-/*
-   UI cooldown.
-
-   এটা reward দেওয়ার শর্ত নয়।
-   Monetag callback-ই আসল completion।
-*/
-
 const UI_COOLDOWN = 15;
 
 
@@ -856,7 +853,7 @@ function goBack(){
     }else{
 
         window.location.href =
-            "https://t.me/sumsyasayed8676";
+            TELEGRAM_VIDEO;
 
     }
 
@@ -967,11 +964,6 @@ function startCooldown(){
 
 function finishAdAttempt(){
 
-    /*
-       Reward callback না এলে
-       কখনো Step Complete হবে না।
-    */
-
     if(
         !rewardedReceived
     ){
@@ -995,10 +987,6 @@ function finishAdAttempt(){
         return;
     }
 
-
-    /*
-       Monetag rewarded callback এসেছে।
-    */
 
     completed++;
 
@@ -1063,10 +1051,6 @@ async function startAd(){
     }
 
 
-    /*
-       Monetag SDK available কিনা পরীক্ষা
-    */
-
     if(
         typeof show_11680537 !==
         "function"
@@ -1101,25 +1085,12 @@ async function startAd(){
 
     try{
 
-        /*
-           Monetag Rewarded Interstitial
-        */
-
         await show_11680537();
 
-
-        /*
-           Monetag Promise resolve করেছে।
-           এখন reward পাওয়া গেছে।
-        */
 
         rewardedReceived =
             true;
 
-
-        /*
-           UI cooldown শুরু।
-        */
 
         startCooldown();
 
@@ -1202,10 +1173,6 @@ function unlockVideo(){
     unlockBox.style.display =
         "block";
 
-
-    /*
-       Telegram link নিশ্চিত করা
-    */
 
     const telegramButton =
         document.querySelector(
