@@ -35,19 +35,13 @@ body{
     overflow-x:hidden;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header{
     height:68px;
     background:#151515;
     border-bottom:2px solid #ff9800;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:0 15px;
 }
 
@@ -80,20 +74,12 @@ body{
     background:#222;
 }
 
-/* =========================
-   CONTAINER
-========================= */
-
 .container{
     width:100%;
     max-width:720px;
     margin:auto;
     padding:20px 12px 45px;
 }
-
-/* =========================
-   IMAGE
-========================= */
 
 .video-card{
     width:100%;
@@ -102,9 +88,7 @@ body{
     border-radius:22px;
     padding:4px;
     overflow:hidden;
-
-    box-shadow:
-        0 10px 35px rgba(0,0,0,.5);
+    box-shadow:0 10px 35px rgba(0,0,0,.5);
 }
 
 .video-card img{
@@ -118,26 +102,17 @@ body{
 
 .image-fallback{
     display:none;
-
     width:100%;
     aspect-ratio:16/9;
-
     border-radius:18px;
     background:#151515;
-
     align-items:center;
     justify-content:center;
-
     text-align:center;
-
     color:#777;
     font-size:18px;
     font-weight:bold;
 }
-
-/* =========================
-   STATS
-========================= */
 
 .stats{
     display:grid;
@@ -150,12 +125,9 @@ body{
     background:#101010;
     border:1px solid #292929;
     border-radius:18px;
-
     padding:16px 5px;
-
     text-align:center;
     cursor:pointer;
-
     transition:.15s ease;
 }
 
@@ -180,26 +152,12 @@ body{
     margin-top:5px;
 }
 
-/* =========================
-   AD BOX
-========================= */
-
 .ad-box{
     margin-top:19px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #17130b,
-            #0e0c09
-        );
-
+    background:linear-gradient(145deg,#17130b,#0e0c09);
     border:1px dashed #ff9800;
-
     border-radius:23px;
-
     padding:21px 15px 19px;
-
     text-align:center;
 }
 
@@ -213,7 +171,6 @@ body{
 .progress-bg{
     width:100%;
     height:10px;
-
     background:#292929;
     border-radius:20px;
     overflow:hidden;
@@ -222,16 +179,8 @@ body{
 .progress{
     width:0%;
     height:100%;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff8a00,
-            #ffc107
-        );
-
+    background:linear-gradient(90deg,#ff8a00,#ffc107);
     border-radius:20px;
-
     transition:.4s ease;
 }
 
@@ -250,32 +199,16 @@ body{
 
 .ad-button{
     width:100%;
-
     margin-top:17px;
-
     border:0;
     border-radius:17px;
-
     padding:18px 12px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ff9800,
-            #ffad19
-        );
-
+    background:linear-gradient(135deg,#ff9800,#ffad19);
     color:#050505;
-
     font-size:20px;
     font-weight:900;
-
     cursor:pointer;
-
-    box-shadow:
-        0 8px 25px
-        rgba(255,152,0,.18);
-
+    box-shadow:0 8px 25px rgba(255,152,0,.18);
     transition:.15s ease;
 }
 
@@ -296,80 +229,48 @@ body{
     font-size:14px;
 }
 
-/* =========================
-   UNLOCK BOX
-========================= */
-
 .unlock-box{
     display:none;
-
     margin-top:19px;
-
     background:#0e1b12;
-
     border:1px solid #2d8a50;
-
     border-radius:22px;
-
     padding:22px 15px;
-
     text-align:center;
 }
 
 .unlock-title{
     color:#5cff7a;
-
     font-size:23px;
     font-weight:900;
 }
 
 .unlock-text{
     margin-top:10px;
-
     color:#aaa;
-
     font-size:14px;
     line-height:1.5;
 }
 
 .unlock-button{
     display:block;
-
     width:100%;
-
     margin-top:18px;
-
     padding:18px 12px;
-
     border-radius:16px;
-
     background:#22c55e;
-
     color:#fff;
-
     text-decoration:none;
-
     font-size:19px;
     font-weight:900;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 .footer{
     text-align:center;
-
     margin-top:27px;
-
     color:#555;
-
     font-size:13px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media(max-width:600px){
 
@@ -392,10 +293,7 @@ body{
     }
 
     .container{
-        padding:
-            18px
-            11px
-            40px;
+        padding:18px 11px 40px;
     }
 
     .stats{
@@ -404,10 +302,7 @@ body{
     }
 
     .stat{
-        padding:
-            15px
-            4px;
-
+        padding:15px 4px;
         border-radius:17px;
     }
 
@@ -425,11 +320,7 @@ body{
 
     .ad-box{
         margin-top:17px;
-
-        padding:
-            20px
-            14px
-            18px;
+        padding:20px 14px 18px;
     }
 
     .ad-title{
@@ -438,10 +329,7 @@ body{
 
     .ad-button{
         font-size:19px;
-
-        padding:
-            17px
-            10px;
+        padding:17px 10px;
     }
 
 }
@@ -451,10 +339,6 @@ body{
 </head>
 
 <body>
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header class="header">
 
@@ -485,199 +369,176 @@ body{
 
 <main class="container">
 
+    <div class="video-card">
 
-<!-- =========================
-     PREMIUM IMAGE
-========================= -->
-
-<div class="video-card">
-
-    <img
-        id="previewImage"
-        src="preview.jpg"
-        alt="Viral Video"
-        onerror="imageError()"
-    >
-
-    <div
-        class="image-fallback"
-        id="imageFallback"
-    >
-        🎬
-        <br>
-        <br>
-        Viral Video
-    </div>
-
-</div>
-
-
-<!-- =========================
-     STATS
-========================= -->
-
-<div class="stats">
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            ♡
-        </div>
-
-        <div class="stat-title">
-            Likes
-        </div>
-
-        <div class="stat-number">
-            52
-        </div>
-
-    </div>
-
-
-    <div class="stat">
-
-        <div class="stat-icon">
-            ◉
-        </div>
-
-        <div class="stat-title">
-            Views
-        </div>
-
-        <div class="stat-number">
-            3167
-        </div>
-
-    </div>
-
-
-    <div
-        class="stat"
-        id="shareButton"
-    >
-
-        <div class="stat-icon">
-            ➤
-        </div>
-
-        <div class="stat-title">
-            Share
-        </div>
-
-        <div class="stat-number">
-            Share
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     REWARDED AD SYSTEM
-========================= -->
-
-<section class="ad-box">
-
-    <div class="ad-title">
-        ▶ Watch 4 ads to unlock
-    </div>
-
-
-    <div class="progress-bg">
+        <img
+            id="previewImage"
+            src="preview.jpg"
+            alt="Viral Video"
+            onerror="imageError()"
+        >
 
         <div
-            class="progress"
-            id="progress"
-        ></div>
+            class="image-fallback"
+            id="imageFallback"
+        >
+            🎬
+            <br>
+            <br>
+            Viral Video
+        </div>
 
     </div>
 
 
-    <div class="progress-text">
+    <div class="stats">
 
-        Progress:
-        <span id="count">
-            0
-        </span>/4
+        <div class="stat">
+
+            <div class="stat-icon">
+                ♡
+            </div>
+
+            <div class="stat-title">
+                Likes
+            </div>
+
+            <div class="stat-number">
+                52
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ◉
+            </div>
+
+            <div class="stat-title">
+                Views
+            </div>
+
+            <div class="stat-number">
+                3167
+            </div>
+
+        </div>
+
+
+        <div
+            class="stat"
+            id="shareButton"
+        >
+
+            <div class="stat-icon">
+                ➤
+            </div>
+
+            <div class="stat-title">
+                Share
+            </div>
+
+            <div class="stat-number">
+                Share
+            </div>
+
+        </div>
 
     </div>
 
 
-    <div
-        class="help-text"
-        id="status"
+    <section class="ad-box">
+
+        <div class="ad-title">
+            ▶ Watch 4 ads to unlock
+        </div>
+
+
+        <div class="progress-bg">
+
+            <div
+                class="progress"
+                id="progress"
+            ></div>
+
+        </div>
+
+
+        <div class="progress-text">
+
+            Progress:
+            <span id="count">0</span>/4
+
+        </div>
+
+
+        <div
+            class="help-text"
+            id="status"
+        >
+            Click Unlock Video to watch the ad
+        </div>
+
+
+        <button
+            class="ad-button"
+            id="adButton"
+            type="button"
+        >
+            🔒 Unlock Video
+        </button>
+
+
+        <div class="step-info">
+
+            Ad Step:
+            <span id="step">1</span> / 4
+
+        </div>
+
+    </section>
+
+
+    <section
+        class="unlock-box"
+        id="unlockBox"
     >
-        Click Unlock Video to watch the ad
-    </div>
+
+        <div class="unlock-title">
+            ✅ Video Unlocked!
+        </div>
 
 
-    <button
-        class="ad-button"
-        id="adButton"
-        type="button"
-    >
-        🔒 Unlock Video
-    </button>
+        <div class="unlock-text">
+
+            সবগুলো ধাপ সম্পন্ন হয়েছে।
+
+            <br>
+
+            এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
+
+        </div>
 
 
-    <div class="step-info">
+        <a
+            class="unlock-button"
+            href="https://t.me/ViralVideoshare_Bot"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            ▶ Watch Video on Telegram
+        </a>
 
-        Ad Step:
-        <span id="step">
-            1
-        </span>
-        / 4
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     VIDEO UNLOCK
-========================= -->
-
-<section
-    class="unlock-box"
-    id="unlockBox"
->
-
-    <div class="unlock-title">
-        ✅ Video Unlocked!
-    </div>
+    </section>
 
 
-    <div class="unlock-text">
+    <div class="footer">
 
-        সবগুলো ধাপ সম্পন্ন হয়েছে।
-
-        <br>
-
-        এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
+        © 2026 Viral Link
 
     </div>
-
-
-    <a
-        class="unlock-button"
-        href="https://t.me/ViralVideoshare_Bot"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        ▶ Watch Video on Telegram
-    </a>
-
-</section>
-
-
-<div class="footer">
-
-    © 2026 Viral Link
-
-</div>
-
 
 </main>
 
@@ -693,12 +554,44 @@ const TELEGRAM_VIDEO =
 
 
 /* =========================================
+   RAILWAY API
+========================================= */
+
+const API_ENDPOINT =
+    "https://mainbo-bot-production.up.railway.app/task-complete";
+
+const API_KEY =
+    "_-_Ol9JJnuk8VlrZXrZNeY9oKoOwqdiV";
+
+
+/* =========================================
    SETTINGS
 ========================================= */
 
 const TOTAL_ADS = 4;
 
 const UI_COOLDOWN = 15;
+
+
+/* =========================================
+   USER ID
+========================================= */
+
+/*
+   Website URL যদি এভাবে আসে:
+
+   https://your-site.com/?user_id=123456
+
+   তাহলে user_id automatically নেওয়া হবে।
+*/
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const USER_ID =
+    urlParams.get("user_id");
 
 
 /* =========================================
@@ -819,6 +712,90 @@ function updateProgress(){
 
 
 /* =========================================
+   SEND TASK COMPLETE
+========================================= */
+
+async function sendTaskComplete(){
+
+    if(!USER_ID){
+
+        console.warn(
+            "user_id পাওয়া যায়নি।"
+        );
+
+        status.innerText =
+            "ভিডিও unlock হয়েছে।";
+
+        return false;
+
+    }
+
+
+    try{
+
+        const response =
+            await fetch(
+                API_ENDPOINT,
+                {
+                    method:"POST",
+
+                    headers:{
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:JSON.stringify({
+
+                        user_id:
+                            Number(USER_ID),
+
+                        api_key:
+                            API_KEY
+
+                    })
+                }
+            );
+
+
+        const data =
+            await response.json()
+            .catch(() => ({}));
+
+
+        console.log(
+            "Task Complete Response:",
+            response.status,
+            data
+        );
+
+
+        if(
+            response.ok
+        ){
+
+            return true;
+
+        }
+
+
+        return false;
+
+
+    }catch(error){
+
+        console.error(
+            "Task Complete API Error:",
+            error
+        );
+
+        return false;
+
+    }
+
+}
+
+
+/* =========================================
    START COOLDOWN
 ========================================= */
 
@@ -842,10 +819,12 @@ function startCooldown(){
     status.innerText =
         "বিজ্ঞাপন থেকে ফিরে এসেছেন। অপেক্ষা করুন...";
 
+
     cooldownTimer =
         setInterval(function(){
 
             cooldownRemaining--;
+
 
             if(
                 cooldownRemaining > 0
@@ -908,6 +887,7 @@ function finishAdAttempt(){
 
     adRunning =
         false;
+
 
     updateProgress();
 
@@ -994,10 +974,13 @@ async function startAd(){
 
         await show_11680537();
 
+
         rewardedReceived =
             true;
 
+
         startCooldown();
+
 
     }catch(error){
 
@@ -1044,7 +1027,7 @@ adButton.addEventListener(
    UNLOCK VIDEO
 ========================================= */
 
-function unlockVideo(){
+async function unlockVideo(){
 
     completed =
         TOTAL_ADS;
@@ -1058,11 +1041,35 @@ function unlockVideo(){
     step.innerText =
         TOTAL_ADS;
 
-    status.innerText =
-        "সবগুলো Advertisement Step Complete!";
 
     adButton.style.display =
         "none";
+
+
+    status.innerText =
+        "Task complete হচ্ছে...";
+
+
+    /*
+       Railway API call
+    */
+
+    const apiSuccess =
+        await sendTaskComplete();
+
+
+    if(apiSuccess){
+
+        status.innerText =
+            "সবগুলো Advertisement Step Complete!";
+
+    }else{
+
+        status.innerText =
+            "সবগুলো Advertisement Step Complete!";
+
+    }
+
 
     unlockBox.style.display =
         "block";
@@ -1150,11 +1157,14 @@ document
 
 
 /* =========================================
-   CACHE-BUSTED PREVIEW IMAGE
+   CACHE BUST PREVIEW
 ========================================= */
 
-document.getElementById("previewImage").src =
-    "preview.jpg?v=" + Date.now();
+document.getElementById(
+    "previewImage"
+).src =
+    "preview.jpg?v=" +
+    Date.now();
 
 
 /* =========================================
@@ -1162,6 +1172,21 @@ document.getElementById("previewImage").src =
 ========================================= */
 
 updateProgress();
+
+
+/* =========================================
+   DEBUG
+========================================= */
+
+console.log(
+    "User ID:",
+    USER_ID
+);
+
+console.log(
+    "API Endpoint:",
+    API_ENDPOINT
+);
 
 </script>
 
