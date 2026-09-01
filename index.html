@@ -7,7 +7,6 @@
 
 <title>Viral Link</title>
 
-<!-- MONETAG SDK -->
 <script
     src="https://libtl.com/sdk.js"
     data-zone="11680537"
@@ -22,8 +21,7 @@
     padding:0;
 }
 
-html,
-body{
+html,body{
     width:100%;
     min-height:100%;
 }
@@ -383,8 +381,7 @@ body{
             id="imageFallback"
         >
             🎬
-            <br>
-            <br>
+            <br><br>
             Viral Video
         </div>
 
@@ -395,9 +392,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                ♡
-            </div>
+            <div class="stat-icon">♡</div>
 
             <div class="stat-title">
                 Likes
@@ -412,9 +407,7 @@ body{
 
         <div class="stat">
 
-            <div class="stat-icon">
-                ◉
-            </div>
+            <div class="stat-icon">◉</div>
 
             <div class="stat-title">
                 Views
@@ -432,9 +425,7 @@ body{
             id="shareButton"
         >
 
-            <div class="stat-icon">
-                ➤
-            </div>
+            <div class="stat-icon">➤</div>
 
             <div class="stat-title">
                 Share
@@ -455,7 +446,6 @@ body{
             ▶ Watch 4 ads to unlock
         </div>
 
-
         <div class="progress-bg">
 
             <div
@@ -465,14 +455,12 @@ body{
 
         </div>
 
-
         <div class="progress-text">
 
             Progress:
             <span id="count">0</span>/4
 
         </div>
-
 
         <div
             class="help-text"
@@ -481,7 +469,6 @@ body{
             Click Unlock Video to watch the ad
         </div>
 
-
         <button
             class="ad-button"
             id="adButton"
@@ -489,7 +476,6 @@ body{
         >
             🔒 Unlock Video
         </button>
-
 
         <div class="step-info">
 
@@ -510,34 +496,30 @@ body{
             ✅ Video Unlocked!
         </div>
 
-
         <div class="unlock-text">
 
-            সবগুলো ধাপ সম্পন্ন হয়েছে।
+            সবগুলো Advertisement সম্পন্ন হয়েছে।
 
             <br>
 
-            এখন নিচের বাটনে ক্লিক করে ভিডিও দেখুন।
+            নিচের বাটনে ক্লিক করলে Telegram Bot
+            আপনার ভিডিও পাঠানোর জন্য চালু হবে।
 
         </div>
 
-
         <a
             class="unlock-button"
-            href="https://t.me/ViralVideoshare_Bot"
-            target="_blank"
-            rel="noopener noreferrer"
+            id="telegramButton"
+            href="#"
         >
-            ▶ Watch Video on Telegram
+            ▶ Get Video on Telegram
         </a>
 
     </section>
 
 
     <div class="footer">
-
         © 2026 Viral Link
-
     </div>
 
 </main>
@@ -546,11 +528,11 @@ body{
 <script>
 
 /* =========================================
-   TELEGRAM BOT
+   TELEGRAM
 ========================================= */
 
-const TELEGRAM_VIDEO =
-    "https://t.me/ViralVideoshare_Bot";
+const TELEGRAM_BOT =
+    "ViralVideoshare_Bot";
 
 
 /* =========================================
@@ -576,14 +558,6 @@ const UI_COOLDOWN = 15;
 /* =========================================
    USER ID
 ========================================= */
-
-/*
-   Website URL যদি এভাবে আসে:
-
-   https://your-site.com/?user_id=123456
-
-   তাহলে user_id automatically নেওয়া হবে।
-*/
 
 const urlParams =
     new URLSearchParams(
@@ -631,6 +605,9 @@ const step =
 const unlockBox =
     document.getElementById("unlockBox");
 
+const telegramButton =
+    document.getElementById("telegramButton");
+
 
 /* =========================================
    IMAGE ERROR
@@ -648,31 +625,28 @@ function imageError(){
             "imageFallback"
         );
 
-    img.style.display =
-        "none";
+    img.style.display = "none";
 
-    fallback.style.display =
-        "flex";
+    fallback.style.display = "flex";
 
 }
 
 
 /* =========================================
-   BACK BUTTON
+   BACK
 ========================================= */
 
 function goBack(){
 
-    if(
-        window.history.length > 1
-    ){
+    if(window.history.length > 1){
 
         window.history.back();
 
     }else{
 
         window.location.href =
-            TELEGRAM_VIDEO;
+            "https://t.me/" +
+            TELEGRAM_BOT;
 
     }
 
@@ -680,7 +654,7 @@ function goBack(){
 
 
 /* =========================================
-   UPDATE PROGRESS
+   PROGRESS
 ========================================= */
 
 function updateProgress(){
@@ -694,9 +668,7 @@ function updateProgress(){
     count.innerText =
         completed;
 
-    if(
-        completed >= TOTAL_ADS
-    ){
+    if(completed >= TOTAL_ADS){
 
         step.innerText =
             TOTAL_ADS;
@@ -712,19 +684,16 @@ function updateProgress(){
 
 
 /* =========================================
-   SEND TASK COMPLETE
+   SEND COMPLETE
 ========================================= */
 
 async function sendTaskComplete(){
 
     if(!USER_ID){
 
-        console.warn(
-            "user_id পাওয়া যায়নি।"
+        console.error(
+            "USER_ID missing"
         );
-
-        status.innerText =
-            "ভিডিও unlock হয়েছে।";
 
         return false;
 
@@ -758,33 +727,25 @@ async function sendTaskComplete(){
 
 
         const data =
-            await response.json()
-            .catch(() => ({}));
+            await response
+                .json()
+                .catch(() => ({}));
 
 
         console.log(
-            "Task Complete Response:",
+            "TASK COMPLETE:",
             response.status,
             data
         );
 
 
-        if(
-            response.ok
-        ){
-
-            return true;
-
-        }
-
-
-        return false;
+        return response.ok;
 
 
     }catch(error){
 
         console.error(
-            "Task Complete API Error:",
+            "API ERROR:",
             error
         );
 
@@ -796,7 +757,7 @@ async function sendTaskComplete(){
 
 
 /* =========================================
-   START COOLDOWN
+   COOLDOWN
 ========================================= */
 
 function startCooldown(){
@@ -816,8 +777,9 @@ function startCooldown(){
         cooldownRemaining +
         " সেকেন্ড";
 
+
     status.innerText =
-        "বিজ্ঞাপন থেকে ফিরে এসেছেন। অপেক্ষা করুন...";
+        "বিজ্ঞাপন শেষ হয়েছে। পরবর্তী Ad শুরু হবে...";
 
 
     cooldownTimer =
@@ -826,9 +788,7 @@ function startCooldown(){
             cooldownRemaining--;
 
 
-            if(
-                cooldownRemaining > 0
-            ){
+            if(cooldownRemaining > 0){
 
                 adButton.innerText =
                     "⏳ " +
@@ -854,14 +814,12 @@ function startCooldown(){
 
 
 /* =========================================
-   FINISH AD ATTEMPT
+   FINISH AD
 ========================================= */
 
 function finishAdAttempt(){
 
-    if(
-        !rewardedReceived
-    ){
+    if(!rewardedReceived){
 
         adRunning =
             false;
@@ -873,7 +831,7 @@ function finishAdAttempt(){
             "🔄 Try Again";
 
         status.innerText =
-            "বিজ্ঞাপনের reward পাওয়া যায়নি। আবার চেষ্টা করুন।";
+            "Reward পাওয়া যায়নি। আবার চেষ্টা করুন।";
 
         return;
 
@@ -888,13 +846,10 @@ function finishAdAttempt(){
     adRunning =
         false;
 
-
     updateProgress();
 
 
-    if(
-        completed >= TOTAL_ADS
-    ){
+    if(completed >= TOTAL_ADS){
 
         unlockVideo();
 
@@ -903,6 +858,13 @@ function finishAdAttempt(){
     }
 
 
+    /*
+       এখানে আর নতুন 15 sec cooldown
+       হবে না।
+
+       সরাসরি পরবর্তী Ad button active হবে।
+    */
+
     adButton.disabled =
         false;
 
@@ -910,29 +872,23 @@ function finishAdAttempt(){
         "🔒 Next Ad";
 
     status.innerText =
-        "পরবর্তী বিজ্ঞাপন দেখতে Next Ad চাপুন";
+        "পরবর্তী Advertisement দেখতে চাপুন";
 
 }
 
 
 /* =========================================
-   SHOW REWARDED AD
+   START AD
 ========================================= */
 
 async function startAd(){
 
-    if(
-        adRunning
-    ){
-
+    if(adRunning){
         return;
-
     }
 
 
-    if(
-        completed >= TOTAL_ADS
-    ){
+    if(completed >= TOTAL_ADS){
 
         unlockVideo();
 
@@ -947,7 +903,7 @@ async function startAd(){
     ){
 
         status.innerText =
-            "Advertisement system এখনো load হয়নি। কয়েক সেকেন্ড পরে চেষ্টা করুন।";
+            "Advertisement system load হচ্ছে। একটু পরে চেষ্টা করুন।";
 
         return;
 
@@ -979,13 +935,18 @@ async function startAd(){
             true;
 
 
+        /*
+           Ad close হওয়ার পর
+           15 sec cooldown
+        */
+
         startCooldown();
 
 
     }catch(error){
 
-        console.log(
-            "Monetag Ad Error:",
+        console.error(
+            "Monetag Error:",
             error
         );
 
@@ -1015,11 +976,7 @@ async function startAd(){
 
 adButton.addEventListener(
     "click",
-    function(){
-
-        startAd();
-
-    }
+    startAd
 );
 
 
@@ -1032,14 +989,7 @@ async function unlockVideo(){
     completed =
         TOTAL_ADS;
 
-    progress.style.width =
-        "100%";
-
-    count.innerText =
-        TOTAL_ADS;
-
-    step.innerText =
-        TOTAL_ADS;
+    updateProgress();
 
 
     adButton.style.display =
@@ -1051,44 +1001,53 @@ async function unlockVideo(){
 
 
     /*
-       Railway API call
+       Railway-তে task complete পাঠানো
     */
 
-    const apiSuccess =
+    const success =
         await sendTaskComplete();
 
 
-    if(apiSuccess){
+    /*
+       Telegram deep link
+       user_id সহ পাঠানো হচ্ছে
+    */
+
+    if(USER_ID){
+
+        const telegramLink =
+            "https://t.me/" +
+            TELEGRAM_BOT +
+            "?start=video_" +
+            USER_ID;
+
+        telegramButton.href =
+            telegramLink;
+
+    }else{
+
+        telegramButton.href =
+            "https://t.me/" +
+            TELEGRAM_BOT;
+
+    }
+
+
+    if(success){
 
         status.innerText =
-            "সবগুলো Advertisement Step Complete!";
+            "✅ Task Complete!";
 
     }else{
 
         status.innerText =
-            "সবগুলো Advertisement Step Complete!";
+            "✅ Advertisement Complete!";
 
     }
 
 
     unlockBox.style.display =
         "block";
-
-
-    const telegramButton =
-        document.querySelector(
-            ".unlock-button"
-        );
-
-
-    if(
-        telegramButton
-    ){
-
-        telegramButton.href =
-            TELEGRAM_VIDEO;
-
-    }
 
 }
 
@@ -1103,9 +1062,7 @@ document
     "click",
     async function(){
 
-        if(
-            navigator.share
-        ){
+        if(navigator.share){
 
             try{
 
@@ -1157,7 +1114,7 @@ document
 
 
 /* =========================================
-   CACHE BUST PREVIEW
+   CACHE BUST
 ========================================= */
 
 document.getElementById(
@@ -1168,23 +1125,19 @@ document.getElementById(
 
 
 /* =========================================
-   INITIALIZE
+   INIT
 ========================================= */
 
 updateProgress();
 
 
-/* =========================================
-   DEBUG
-========================================= */
-
 console.log(
-    "User ID:",
+    "USER ID:",
     USER_ID
 );
 
 console.log(
-    "API Endpoint:",
+    "API:",
     API_ENDPOINT
 );
 
