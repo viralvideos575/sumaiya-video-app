@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Viral Link</title>
+<script src="https://libtl.com/sdk.js" data-zone="11680537" data-sdk="show_11680537"></script>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#070707;color:#fff;font-family:Arial,sans-serif}.container{max-width:720px;margin:auto;padding:18px 12px}.video{background:#111;border-radius:20px;padding:4px}.video img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:16px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}.stat,.box{background:#111;border:1px solid #292929;border-radius:18px;text-align:center;padding:16px}.stat b{display:block;font-size:18px;margin-top:5px}.box{border-color:#ff9800}.title{color:#ffbd16;font-size:20px;font-weight:900;margin-bottom:15px}.bar{height:10px;background:#292929;border-radius:20px;overflow:hidden}.fill{height:100%;width:0;background:#ffae00}.count{font-size:20px;font-weight:900;margin:13px}.status{color:#aaa;font-size:14px}.btn{width:100%;border:0;border-radius:16px;padding:17px;background:#ff9800;font-size:19px;font-weight:900;margin-top:15px}.btn:disabled{background:#555;color:#aaa}.unlock{display:none;margin-top:18px;background:#0e1b12;border:1px solid #2d8a50;border-radius:20px;padding:22px;text-align:center}.unlock h2{color:#5cff7a}.tg{display:block;margin-top:16px;background:#22c55e;color:#fff;text-decoration:none;padding:17px;border-radius:15px;font-weight:900}.debugbox{margin-top:16px;background:#1a1200;border:1px dashed #ffbd16;border-radius:14px;padding:14px;font-size:13px;word-break:break-all;white-space:pre-wrap}.debugbtn{width:100%;border:0;border-radius:14px;padding:14px;background:#3b82f6;color:#fff;font-weight:900;margin-top:10px}
+</style>
+</head>
+<body>
+<main class="container">
+<div class="video"><img src="preview.jpg?v=1" onerror="this.style.display='none'" alt="Viral Video"></div>
+<div class="stats"><div class="stat">♡<b>Likes</b><b>52</b></div><div class="stat">◉<b>Views</b><b>3167</b></div><div class="stat">➤<b>Share</b></div></div>
+<section class="box"><div class="title">▶ Watch 4 ads to unlock</div><div class="bar"><div id="fill" class="fill"></div></div><div class="count">Progress: <span id="count">0</span>/4</div><div id="status" class="status">Click Unlock Video to watch the ad</div><button id="adButton" class="btn">🔒 Unlock Video</button><div class="status">Ad Step: <span id="step">1</span> / 4</div></section>
+<section id="unlock" class="unlock"><h2 id="unlockTitle">✅ Video Unlocked!</h2><div id="unlockText">ভিডিও আপনার Telegram-এ পাঠানো হচ্ছে...</div><div id="debugInfo" class="debugbox" style="display:none"></div><a class="tg" href="https://t.me/ViralVideoshare_Bot" target="_blank">▶ Open Telegram</a></section>
+<div id="debugPanel" style="display:none"><button id="debugBtn" class="debugbtn">🧪 Test API Directly (no ads, debug mode)</button><div id="debugPanelInfo" class="debugbox" style="display:none"></div></div>
+</main>
+<script>
+const API="https://mainbo-bot-production.up.railway.app/task-complete";
+const KEY="_-_Ol9JJnuk8VlrZXrZNeY9oKoOwqdiV";
+const USER_ID=new URLSearchParams(location.search).get("user_id");
+const DEBUG=new URLSearchParams(location.search).get("debug")==="1";
+const TOTAL=4,COOLDOWN=15;let completed=0,running=false,reward=false,timer=null,remaining=0,sent=false;
+const btn=document.getElementById('adButton'),status=document.getElementById('status'),fill=document.getElementById('fill'),count=document.getElementById('count'),step=document.getElementById('step'),unlock=document.getElementById('unlock'),ut=document.getElementById('unlockTitle'),ux=document.getElementById('unlockText'),debugInfo=document.getElementById('debugInfo');
+function update(){fill.style.width=(completed/TOTAL*100)+'%';count.textContent=completed;step.textContent=completed>=TOTAL?TOTAL:completed+1}
+
+// Returns {ok, detail} - detail is a human-readable string describing exactly
+// what happened (network error text, or HTTP status + server response body),
+// so the failure reason is visible on-screen without needing DevTools.
+async function taskComplete(){
+  if(sent)return {ok:true,detail:'Already sent this session.'};
+  if(!USER_ID)return {ok:false,detail:'Telegram User ID পাওয়া যায়নি (URL-এ ?user_id=... নেই)। Bot থেকে লিংক খুলুন।'};
+  status.textContent='Task verify করা হচ্ছে...';
+  let r,text;
+  try{
+    r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({user_id:Number(USER_ID),api_key:KEY})});
+  }catch(e){
+    console.error('FETCH THREW (network/CORS level failure):',e);
+    return {ok:false,detail:'Network/CORS error - request কখনো server-এ পৌঁছায়নি।\nBrowser error: '+(e&&e.message?e.message:String(e))};
+  }
+  text=await r.text();
+  let d={};
+  try{d=JSON.parse(text)}catch(_){}
+  console.log('TASK COMPLETE',r.status,d,text);
+  if(r.ok&&d.ok===true){
+    sent=true;
+    return {ok:true,detail:'HTTP '+r.status+' - '+text};
+  }
+  console.error('Task API failed',r.status,d,text);
+  return {ok:false,detail:'Server response: HTTP '+r.status+'\nBody: '+text};
+}
+
+function finish(){if(!reward){running=false;btn.disabled=false;btn.textContent='🔄 Try Again';status.textContent='বিজ্ঞাপনের reward পাওয়া যায়নি। আবার চেষ্টা করুন।';return}completed++;reward=false;running=false;update();if(completed>=TOTAL){unlockVideo();return}btn.disabled=false;btn.textContent='🔒 Next Ad';status.textContent='পরবর্তী বিজ্ঞাপন দেখতে Next Ad চাপুন'}
+function cooldown(){clearInterval(timer);remaining=COOLDOWN;btn.disabled=true;btn.textContent='⏳ '+remaining+' সেকেন্ড';status.textContent='বিজ্ঞাপন থেকে ফিরে এসেছেন। অপেক্ষা করুন...';timer=setInterval(()=>{remaining--;if(remaining>0)btn.textContent='⏳ '+remaining+' সেকেন্ড';else{clearInterval(timer);timer=null;finish()}},1000)}
+async function startAd(){if(running||completed>=TOTAL)return;if(typeof show_11680537!=='function'){status.textContent='Advertisement system এখনো load হয়নি।';return}running=true;reward=false;btn.disabled=true;btn.textContent='⏳ Opening Ad...';status.textContent='Advertisement loading...';try{await show_11680537();reward=true;cooldown()}catch(e){console.error(e);running=false;btn.disabled=false;btn.textContent='🔄 Try Again';status.textContent='Advertisement সম্পূর্ণ হয়নি। আবার চেষ্টা করুন।'}}
+
+async function unlockVideo(){
+  btn.style.display='none';unlock.style.display='block';
+  const result=await taskComplete();
+  if(result.ok){
+    ut.textContent='✅ Video Sent to Telegram!';
+    ux.innerHTML='Ads-এর সবগুলো ধাপ সম্পন্ন হয়েছে।<br>ভিডিওটি আপনার Telegram-এ পাঠানো হয়েছে।';
+    status.textContent='Task Complete ✅ Video Sent';
+  }else{
+    ut.textContent='⚠️ Video Send Failed';
+    ux.innerHTML='Ads সম্পন্ন হয়েছে, কিন্তু Telegram-এ ভিডিও পাঠানো যায়নি।';
+    status.textContent='Task API failed';
+  }
+  if(DEBUG){
+    debugInfo.style.display='block';
+    debugInfo.textContent='Diagnostic (screenshot this):\nuser_id='+USER_ID+'\n'+result.detail;
+  }
+}
+
+btn.addEventListener('click',startAd);update();console.log('USER_ID=',USER_ID);console.log('API=',API);
+
+// Debug mode: add ?debug=1 to the URL to test the API instantly, without
+// watching any ads. Useful for isolating network/CORS/key issues.
+if(DEBUG){
+  const debugPanel=document.getElementById('debugPanel');
+  const debugPanelInfo=document.getElementById('debugPanelInfo');
+  const debugBtn=document.getElementById('debugBtn');
+  debugPanel.style.display='block';
+  debugBtn.addEventListener('click',async()=>{
+    debugBtn.disabled=true;debugBtn.textContent='⏳ Testing...';
+    const result=await taskComplete();
+    debugPanelInfo.style.display='block';
+    debugPanelInfo.textContent=(result.ok?'✅ SUCCESS\n':'❌ FAILED\n')+'user_id='+USER_ID+'\n'+result.detail;
+    debugBtn.disabled=false;debugBtn.textContent='🧪 Test API Directly (no ads, debug mode)';
+  });
+}
+</script>
+</body>
+</html>
